@@ -22,24 +22,22 @@ public class ProductServiceTest extends JerseyTest{
     }
 
 	public ProductServiceTest () throws Exception{
-		super("com.inderjit.config.rest","com.sun.jersey");
+		super("com.inderjit.config.rest");
 	}
 	
 	@Test
     public void testPingService() {
 		WebResource webResource = resource();
-		webResource.accept("application/json").type("application.json");
 		String responseMsg = webResource.path("ping/test").get(String.class);
         log.info("Ping Executed ...");
         assertEquals("Ping success !!! Server is running ...", responseMsg);
     }
 
-	@Test
-    public void testGetAllProducts() {
-		WebResource webResource = resource();		
-        String response = webResource.path("products/allProducts").get(String.class);
-        log.log(Level.INFO,"Output from Server .... " + response);
-//        assertEquals("Ping success !!! Server is running ...", responseMsg);
-    }
+//	@Test
+//    public void testGetAllProducts() {
+//		WebResource webResource = resource();		
+//        String response = webResource.path("products/allProducts").get(String.class);
+//        log.log(Level.INFO,"Output from Server .... " + response);
+//    }
 
 }
